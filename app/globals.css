@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 30 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 12%;
+    --primary: 28 32% 22%;
+    --primary-foreground: 40 33% 98%;
+    --secondary: 38 30% 90%;
+    --secondary-foreground: 28 32% 22%;
+    --muted: 38 26% 93%;
+    --muted-foreground: 30 8% 40%;
+    --accent: 32 45% 52%;
+    --accent-foreground: 40 33% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 33% 98%;
+    --border: 35 22% 86%;
+    --input: 35 22% 86%;
+    --ring: 32 45% 52%;
+    --chart-1: 28 32% 22%;
+    --chart-2: 32 45% 52%;
+    --chart-3: 38 30% 72%;
+    --chart-4: 40 20% 90%;
+    --chart-5: 30 10% 35%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    @apply bg-accent/30 text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+  .section-py {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.hero-grain {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.18),
+    transparent 70%
+  );
+}
+
+.image-cover {
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-init {
+  opacity: 0;
+}
+
+.reveal-in {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
