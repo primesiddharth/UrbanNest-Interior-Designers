@@ -1,76 +1,109 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram, Facebook, Linkedin, Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import {
+  Instagram,
+  Facebook,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Heart,
+} from 'lucide-react';
+
 import { siteConfig, navLinks, services } from '@/lib/site';
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="absolute inset-0 hero-grain pointer-events-none" aria-hidden />
+      <div
+        className="absolute inset-0 hero-grain pointer-events-none"
+        aria-hidden
+      />
+
       <div className="container-px relative mx-auto max-w-7xl pt-20 pb-10">
-        <div className="grid gap-12 lg:grid-cols-12">
-          {/* Brand */}
-          <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2.5" aria-label="UrbanNest home">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent text-accent-foreground">
-                <span className="font-display text-lg font-semibold">U</span>
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-lg font-semibold">UrbanNest</span>
-                <span className="text-[0.6rem] font-medium uppercase tracking-[0.25em] text-primary-foreground/60">
+
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+                  {/* Brand */}
+          <div>
+            <Link href="/" className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                <span className="font-display text-xl font-bold">U</span>
+              </div>
+
+              <div>
+                <h2 className="font-display text-xl font-bold">
+                  UrbanNest
+                </h2>
+
+                <p className="text-xs uppercase tracking-[0.25em] text-primary-foreground/60">
                   Interior Designers
-                </span>
-              </span>
+                </p>
+              </div>
             </Link>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
+
+            <p className="mt-5 text-sm leading-7 text-primary-foreground/70">
               {siteConfig.description}
             </p>
-            <div className="mt-6 flex items-center gap-3">
-              <SocialIcon href={siteConfig.social.instagram} label="Instagram">
+
+            <div className="mt-6 flex gap-3">
+              <SocialIcon
+                href={siteConfig.social.instagram}
+                label="Instagram"
+              >
                 <Instagram className="h-4 w-4" />
               </SocialIcon>
-              <SocialIcon href={siteConfig.social.facebook} label="Facebook">
+
+              <SocialIcon
+                href={siteConfig.social.facebook}
+                label="Facebook"
+              >
                 <Facebook className="h-4 w-4" />
               </SocialIcon>
-              <SocialIcon href={siteConfig.social.linkedin} label="LinkedIn">
+
+              <SocialIcon
+                href={siteConfig.social.linkedin}
+                label="LinkedIn"
+              >
                 <Linkedin className="h-4 w-4" />
               </SocialIcon>
             </div>
           </div>
 
           {/* Explore */}
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
               Explore
             </h3>
-            <ul className="mt-5 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+
+            <ul className="mt-5 space-y-3">
+              {navLinks.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-primary-foreground/65 transition-colors hover:text-accent"
+                    href={item.href}
+                    className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                   >
-                    {link.title}
+                    {item.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Services */}
-          <div className="lg:col-span-3">
+                    {/* Services */}
+          <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
               Services
             </h3>
-            <ul className="mt-5 flex flex-col gap-3">
-              {services.slice(0, 7).map((s) => (
-                <li key={s.slug}>
+
+            <ul className="mt-5 space-y-3">
+              {services.slice(0, 6).map((item) => (
+                <li key={item.slug}>
                   <Link
-                    href={`/services#${s.slug}`}
-                    className="text-sm text-primary-foreground/65 transition-colors hover:text-accent"
+                    href={`/services#${item.slug}`}
+                    className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                   >
-                    {s.title}
+                    {item.title}
                   </Link>
                 </li>
               ))}
@@ -78,49 +111,54 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="lg:col-span-3">
+          <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
-              Studio
+              Contact
             </h3>
-            <ul className="mt-5 flex flex-col gap-4 text-sm text-primary-foreground/70">
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+
+            <div className="mt-5 space-y-4 text-sm text-primary-foreground/70">
+
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" />
                 <span>
                   {siteConfig.address.line1}
                   <br />
                   {siteConfig.address.line2}
                 </span>
-              </li>
-              <li className="flex gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-accent">
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4 shrink-0 text-accent" />
+                <a
+                  href={`tel:${siteConfig.phoneHref}`}
+                  className="hover:text-accent transition-colors"
+                >
                   {siteConfig.phone}
                 </a>
-              </li>
-              <li className="flex gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-accent">
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 shrink-0 text-accent" />
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="hover:text-accent transition-colors"
+                >
                   {siteConfig.email}
                 </a>
-              </li>
-              <li className="flex gap-3">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <span>{siteConfig.hours}</span>
-              </li>
-            </ul>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-primary-foreground"
-            >
-              Book a consultation
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
-        </div>
+              </div>
 
-        <div className="mt-16 h-48 overflow-hidden rounded-xl border border-primary-foreground/10 bg-primary-foreground/5">
+              <div className="flex items-center gap-3">
+                <Clock className="h-4 w-4 shrink-0 text-accent" />
+                <span>{siteConfig.hours}</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+                <div className="mt-16 h-48 overflow-hidden rounded-xl border border-primary-foreground/10 bg-primary-foreground/5">
           <iframe
-            title="UrbanNest studio location map"
+            title="UrbanNest Studio Location"
             src={siteConfig.mapEmbedUrl}
             className="h-full w-full grayscale-[0.3]"
             loading="lazy"
@@ -128,14 +166,36 @@ export function Footer() {
           />
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-primary-foreground/15 pt-6 sm:flex-row">
+
           <p className="text-xs text-primary-foreground/55">
-            © {new Date().getFullYear()} {siteConfig.fullName}. All rights reserved.
-          </p>
-          <p className="text-xs text-primary-foreground/55">
-            Crafted in Bengaluru · Designed for modern Indian living
-          </p>
+  © {new Date().getFullYear()} {siteConfig.fullName}. All Rights Reserved.
+</p>
+
+<div className="flex items-center gap-2 text-xs sm:text-sm text-primary-foreground/70">
+  <span className="flex items-center">
+    Made with
+
+    <Heart
+      className="mx-1.5 h-4 w-4 fill-red-500 text-red-500 animate-pulse"
+    />
+
+    by{" "}
+
+    <a
+      href="https://creyotech.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="ml-1 font-semibold text-accent transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_currentColor]"
+    >
+      CreyoTech
+    </a>
+  </span>
+</div>
+            
+
         </div>
+
       </div>
     </footer>
   );
@@ -156,7 +216,7 @@ function SocialIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/70 transition-all duration-300 hover:border-accent hover:bg-accent hover:text-accent-foreground"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/70 transition-all duration-300 hover:border-accent hover:bg-accent hover:text-accent-foreground"
     >
       {children}
     </a>
