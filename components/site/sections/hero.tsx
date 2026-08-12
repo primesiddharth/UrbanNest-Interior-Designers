@@ -21,17 +21,17 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-transparent" />
       </div>
 
-      <div className="container-px relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center pt-28 pb-20">
+      <div className="container-px relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center pt-24 mt-4 pb-20">
         <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-white backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.25em] text-white backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
             Bengaluru · Est. 2014
           </span>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[4rem] text-balance">
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[4rem] text-balance">
             Where Indian homes meet{' '}
             <span className="italic text-accent">modern luxury</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+          <p className="mt-6 max-w-xl text-lg leading-tight text-white/80">
             UrbanNest crafts warm, timeless interiors for apartments, villas and
             commercial spaces across Bengaluru — designed around the way you live,
             built to last a lifetime.
@@ -39,7 +39,7 @@ export function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/contact"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-7 text-sm font-semibold text-accent-foreground transition-all duration-300 hover:scale-[1.02] hover:bg-white"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-7 text-sm font-semibold text-accent-foreground transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:text-black"
             >
               Book a Consultation
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />

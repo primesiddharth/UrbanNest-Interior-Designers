@@ -1,13 +1,13 @@
-import { cn } from '@/lib/utils';
-import { Reveal } from '@/components/site/reveal';
-import { SmartImage } from '@/components/site/smart-image';
+import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/site/reveal";
+import { SmartImage } from "@/components/site/smart-image";
 
 type PageHeaderProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   image: string;
-  align?: 'left' | 'center';
+  align?: "left" | "center";
 };
 
 export function PageHeader({
@@ -15,10 +15,10 @@ export function PageHeader({
   title,
   description,
   image,
-  align = 'center',
+  align = "center",
 }: PageHeaderProps) {
   return (
-    <section className="relative flex min-h-[58vh] items-end overflow-hidden pt-28">
+    <section className="relative flex h-screen items-center overflow-hidden">
       <div className="absolute inset-0">
         <SmartImage
           src={image}
@@ -28,13 +28,19 @@ export function PageHeader({
           className="absolute inset-0 h-full w-full"
           imgClassName="h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/55 to-primary/30" />
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/35" />
+
+        {/* Stronger bottom gradient for text */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
       </div>
       <div className="container-px relative mx-auto w-full max-w-7xl pb-16 sm:pb-20">
         <Reveal
           className={cn(
-            'flex flex-col gap-5',
-            align === 'center' ? 'items-center text-center' : 'items-start text-left'
+            "flex flex-col gap-5",
+            align === "center"
+              ? "items-center text-center"
+              : "items-start text-left",
           )}
         >
           {eyebrow && (

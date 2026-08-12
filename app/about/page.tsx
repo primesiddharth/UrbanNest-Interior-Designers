@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="overflow-hidden rounded-2xl">
                 <SmartImage
-                  src="https://images.pexels.com/photos/7641857/pexels-photo-7641857.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  src="https://imgs.search.brave.com/XCMgSgviYzwhlwUpeFWfDbayGiDaGgJTH3lgL9zHLHo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25jYWZl/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8wMS8yMTAw/MjE0OC8zLWJlc3Qt/cHJvamVjdC1tYW5h/Z2VtZW50LWhvbWUt/aW50ZXJpb3ItZGVz/aWduZXJzLndlYnA"
                   alt="UrbanNest team reviewing plans with clients"
                   className="aspect-[4/3] w-full"
                 />

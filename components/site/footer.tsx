@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import {
   Instagram,
   Facebook,
@@ -10,9 +10,11 @@ import {
   MapPin,
   Clock,
   Heart,
-} from 'lucide-react';
+  ArrowUpRight,
+} from "lucide-react";
 
-import { siteConfig, navLinks, services } from '@/lib/site';
+import { siteConfig, navLinks, services } from "@/lib/site";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -23,19 +25,23 @@ export function Footer() {
       />
 
       <div className="container-px relative mx-auto max-w-7xl pt-20 pb-10">
-
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-                  {/* Brand */}
+          {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-                <span className="font-display text-xl font-bold">U</span>
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white shadow-md transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="UrbanNest Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                  priority
+                />
               </div>
 
               <div>
-                <h2 className="font-display text-xl font-bold">
-                  UrbanNest
-                </h2>
+                <h2 className="font-display text-xl font-bold">UrbanNest</h2>
 
                 <p className="text-xs uppercase tracking-[0.25em] text-primary-foreground/60">
                   Interior Designers
@@ -48,24 +54,15 @@ export function Footer() {
             </p>
 
             <div className="mt-6 flex gap-3">
-              <SocialIcon
-                href={siteConfig.social.instagram}
-                label="Instagram"
-              >
+              <SocialIcon href={siteConfig.social.instagram} label="Instagram">
                 <Instagram className="h-4 w-4" />
               </SocialIcon>
 
-              <SocialIcon
-                href={siteConfig.social.facebook}
-                label="Facebook"
-              >
+              <SocialIcon href={siteConfig.social.facebook} label="Facebook">
                 <Facebook className="h-4 w-4" />
               </SocialIcon>
 
-              <SocialIcon
-                href={siteConfig.social.linkedin}
-                label="LinkedIn"
-              >
+              <SocialIcon href={siteConfig.social.linkedin} label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
               </SocialIcon>
             </div>
@@ -90,7 +87,7 @@ export function Footer() {
               ))}
             </ul>
           </div>
-                    {/* Services */}
+          {/* Services */}
           <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
               Services
@@ -117,7 +114,6 @@ export function Footer() {
             </h3>
 
             <div className="mt-5 space-y-4 text-sm text-primary-foreground/70">
-
               <div className="flex items-start gap-3">
                 <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" />
                 <span>
@@ -151,51 +147,43 @@ export function Footer() {
                 <Clock className="h-4 w-4 shrink-0 text-accent" />
                 <span>{siteConfig.hours}</span>
               </div>
-
             </div>
           </div>
-
         </div>
-                <div className="mt-16 h-48 overflow-hidden rounded-xl border border-primary-foreground/10 bg-primary-foreground/5">
+        <div className="mt-16 h-56 overflow-hidden rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 sm:h-64 lg:h-72">
           <iframe
             title="UrbanNest Studio Location"
             src={siteConfig.mapEmbedUrl}
-            className="h-full w-full grayscale-[0.3]"
+            className="h-full w-full border-0 grayscale-[0.3]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
           />
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-primary-foreground/15 pt-6 sm:flex-row">
+          <p className="text-xs text-primary-foreground/80">
+            © {new Date().getFullYear()} {siteConfig.fullName}. All Rights
+            Reserved.
+          </p>
 
-          <p className="text-xs text-primary-foreground/55">
-  © {new Date().getFullYear()} {siteConfig.fullName}. All Rights Reserved.
-</p>
-
-<div className="flex items-center gap-2 text-xs sm:text-sm text-primary-foreground/70">
-  <span className="flex items-center">
-    Made with
-
-    <Heart
-      className="mx-1.5 h-4 w-4 fill-red-500 text-red-500 animate-pulse"
-    />
-
-    by{" "}
-
-    <a
-      href="https://creyotech.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="ml-1 font-semibold text-accent transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_currentColor]"
-    >
-      CreyoTech
-    </a>
-  </span>
-</div>
-            
-
+          <div className="flex items-center gap-2 text-xs text-primary-foreground/70">
+            <span className="flex items-center">
+              Made with
+              <Heart className="mx-1.5 h-4 w-4 fill-red-500 text-red-500 animate-pulse" />
+              by{" "}
+              <a
+                href="https://creyotech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 group inline-flex items-center font-semibold text-accent transition-all duration-300 hover:text-white/80"
+              >
+                Creyotech IT Services
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </span>
+          </div>
         </div>
-
       </div>
     </footer>
   );

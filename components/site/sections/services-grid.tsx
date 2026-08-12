@@ -1,12 +1,13 @@
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
-import { SectionHeading } from '@/components/site/section-heading';
-import { Reveal } from '@/components/site/reveal';
-import { SmartImage } from '@/components/site/smart-image';
-import { DynamicIcon } from '@/components/site/dynamic-icon';
-import { services } from '@/lib/site';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { SectionHeading } from "@/components/site/section-heading";
+import { Reveal } from "@/components/site/reveal";
+import { SmartImage } from "@/components/site/smart-image";
+import { DynamicIcon } from "@/components/site/dynamic-icon";
+import { services } from "@/lib/site";
 
 export function ServicesGrid() {
+  const featuredService = services.slice(0, 6);
   return (
     <section className="bg-secondary/40">
       <div className="container-px mx-auto max-w-7xl section-py">
@@ -17,7 +18,7 @@ export function ServicesGrid() {
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+          {featuredService.map((service, i) => (
             <Reveal key={service.slug} delay={i * 70}>
               <Link
                 href={`/services#${service.slug}`}
@@ -43,7 +44,10 @@ export function ServicesGrid() {
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-accent">
                     Explore
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      aria-hidden
+                    />
                   </span>
                 </div>
               </Link>

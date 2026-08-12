@@ -24,7 +24,7 @@ export default function FAQPage() {
         eyebrow="FAQ"
         title="Questions, answered"
         description="Everything you might want to know before starting a project with us. Still curious? We are a quick call or message away."
-        image="https://images.pexels.com/photos/7489098/pexels-photo-7489098.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        image="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg"
       />
 
       <section className="container-px mx-auto max-w-3xl section-py">
