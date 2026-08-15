@@ -260,7 +260,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 10,
     title: "The Earthy Living Room",
-    category: "Living Room",
+    category: "Living",
     location: "Indiranagar, Bengaluru",
     image:
       "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=900",
